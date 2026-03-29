@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danilo Vera | DevOps Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #06b6d4;
+            --bg: #0f172a;
+            --bg-card: #1e293b;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            padding: 8rem 0 4rem;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(37,99,235,0.1) 0%, transparent 100%);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 20px 40px rgba(37,99,235,0.3);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--text), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .title {
+            font-size: 1.25rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .location {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .social-links a:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(180deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.2s;
+        }
+
+        .skill-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .skill-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            padding: 0.35rem 0.75rem;
+            background: rgba(37,99,235,0.1);
+            border: 1px solid rgba(37,99,235,0.3);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.2s;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .project-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .project-stars {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: var(--warning);
+            font-size: 0.9rem;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Contact */
+        .contact-card {
+            background: linear-gradient(135deg, rgba(37,99,235,0.1), rgba(6,182,212,0.1));
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .contact-link:hover {
+            border-color: var(--primary);
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="profile-img">DV</div>
+            <h1>Danilo Vera</h1>
+            <p class="title">DevOps Engineer</p>
+            <p class="location">📍 Uruguay</p>
+            <div class="social-links">
+                <a href="https://github.com/danilovera36" target="_blank">GitHub</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="mailto:danilo@example.com">Email</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Stats -->
+        <section>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">11+</div>
+                    <div class="stat-label">Proyectos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">560+</div>
+                    <div class="stat-label">Tests</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Repositorios</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Test Coverage</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section>
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="skill-card">
+                <p style="color: var(--text-muted); line-height: 1.8;">
+                    DevOps Engineer con pasión por la automatización, infraestructura como código y sistemas resilientes. 
+                    Tengo experiencia en Kubernetes, Docker, AWS y CI/CD pipelines. Me encanta crear herramientas que 
+                    simplifican el trabajo y mejoran la eficiencia operativa.
+                </p>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section>
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>🐳 Container & Orchestration</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Helm</span>
+                        <span class="skill-tag">Docker Compose</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>☁️ Cloud & Infrastructure</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">IaC</span>
+                        <span class="skill-tag">S3</span>
+                        <span class="skill-tag">EC2</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>🔧 CI/CD & Automation</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">GitHub Actions</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">GitLab CI</span>
+                        <span class="skill-tag">ArgoCD</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>🐍 Programming</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Bash</span>
+                        <span class="skill-tag">Click</span>
+                        <span class="skill-tag">Django</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>📊 Observability</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Prometheus</span>
+                        <span class="skill-tag">Grafana</span>
+                        <span class="skill-tag">ELK Stack</span>
+                        <span class="skill-tag">Datadog</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>🗄️ Databases & Cache</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">DynamoDB</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section>
+            <h2 class="section-title">Proyectos Destacados</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-name">deployment-monitor</span>
+                    </div>
+                    <p class="project-desc">Monitoreo de deployments en tiempo real con rollback automático y notificaciones.</p>
+                    <div class="project-tech">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Slack API</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-name">env-vault</span>
+                    </div>
+                    <p class="project-desc">CLI para encriptar archivos .env con AES-256 y soporte para AWS KMS.</p>
+                    <div class="project-tech">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Cryptography</span>
+                        <span class="skill-tag">AWS KMS</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-name">k8s-resource-exporter</span>
+                    </div>
+                    <p class="project-desc">Exporta recursos de Kubernetes a YAML, JSON o HTML con reportes visuales.</p>
+                    <div class="project-tech">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Kubernetes API</span>
+                        <span class="skill-tag">Jinja2</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-name">secrets-scanner</span>
+                    </div>
+                    <p class="project-desc">Detector de secrets y API keys expuestas en repositorios Git.</p>
+                    <div class="project-tech">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Regex</span>
+                        <span class="skill-tag">YAML</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-name">log-analyzer</span>
+                    </div>
+                    <p class="project-desc">Parser inteligente de logs con métricas, detección de errores y anomalías.</p>
+                    <div class="project-tech">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Regex</span>
+                        <span class="skill-tag">JSON</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-name">ssl-cert-checker</span>
+                    </div>
+                    <p class="project-desc">Verificador de certificados SSL con alertas de expiración.</p>
+                    <div class="project-tech">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">SSL/TLS</span>
+                        <span class="skill-tag">OpenSSL</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section>
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-card">
+                <h3>¿Interested en trabajar juntos?</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                    Siempre abierto a nuevas oportunidades y proyectos interesantes.
+                </p>
+                <div class="contact-links">
+                    <a href="https://github.com/danilovera36" class="contact-link" target="_blank">GitHub Profile</a>
+                    <a href="https://linkedin.com" class="contact-link" target="_blank">LinkedIn</a>
+                    <a href="mailto:danilo@example.com" class="contact-link">Email Me</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Built with ❤️ | © 2026 Danilo Vera</p>
+        </div>
+    </footer>
+</body>
+</html>
