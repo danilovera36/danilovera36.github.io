@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danilo Vera | DevOps Engineer</title>
+    <title>Danilo Vera | Senior DevOps Engineer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -48,7 +48,6 @@
             padding: 0 2rem;
         }
 
-        /* Header */
         header {
             padding: 8rem 0 4rem;
             text-align: center;
@@ -112,7 +111,6 @@
             transform: translateY(-2px);
         }
 
-        /* Sections */
         section {
             padding: 4rem 0;
         }
@@ -134,7 +132,6 @@
             border-radius: 2px;
         }
 
-        /* Skills */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -176,7 +173,6 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* Projects */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -208,14 +204,6 @@
             font-weight: 600;
         }
 
-        .project-stars {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-            color: var(--warning);
-            font-size: 0.9rem;
-        }
-
         .project-desc {
             color: var(--text-muted);
             font-size: 0.9rem;
@@ -228,7 +216,6 @@
             gap: 0.5rem;
         }
 
-        /* Stats */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -255,18 +242,55 @@
             font-size: 0.85rem;
         }
 
-        /* Contact */
+        .experience-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-company {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .experience-period {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        .experience-title {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .cert-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 8px;
+            margin: 0.25rem;
+        }
+
         .contact-card {
             background: linear-gradient(135deg, rgba(37,99,235,0.1), rgba(6,182,212,0.1));
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 2rem;
             text-align: center;
-        }
-
-        .contact-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
         }
 
         .contact-links {
@@ -290,7 +314,6 @@
             color: var(--accent);
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 2rem 0;
@@ -298,7 +321,6 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -315,20 +337,23 @@
         <div class="container">
             <div class="profile-img">DV</div>
             <h1>Danilo Vera</h1>
-            <p class="title">DevOps Engineer</p>
-            <p class="location">📍 Uruguay</p>
+            <p class="title">Senior DevOps Engineer</p>
+            <p class="location">Montevideo, Uruguay 🇺🇾</p>
             <div class="social-links">
                 <a href="https://github.com/danilovera36" target="_blank">GitHub</a>
-                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-                <a href="mailto:danilo@example.com">Email</a>
+                <a href="https://linkedin.com/in/danilo-vera-devops" target="_blank">LinkedIn</a>
+                <a href="mailto:daniloverauy@gmail.com">Email</a>
             </div>
         </div>
     </header>
 
     <main class="container">
-        <!-- Stats -->
         <section>
             <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">4+</div>
+                    <div class="stat-label">Años de Experiencia</div>
+                </div>
                 <div class="stat-card">
                     <div class="stat-number">11+</div>
                     <div class="stat-label">Proyectos</div>
@@ -338,67 +363,81 @@
                     <div class="stat-label">Tests</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">7</div>
-                    <div class="stat-label">Repositorios</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Test Coverage</div>
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Certificaciones</div>
                 </div>
             </div>
         </section>
 
-        <!-- About -->
         <section>
-            <h2 class="section-title">Sobre Mí</h2>
-            <div class="skill-card">
-                <p style="color: var(--text-muted); line-height: 1.8;">
-                    DevOps Engineer con pasión por la automatización, infraestructura como código y sistemas resilientes. 
-                    Tengo experiencia en Kubernetes, Docker, AWS y CI/CD pipelines. Me encanta crear herramientas que 
-                    simplifican el trabajo y mejoran la eficiencia operativa.
-                </p>
+            <h2 class="section-title">Experiencia</h2>
+            <div class="experience-card">
+                <div class="experience-header">
+                    <span class="experience-company">Intive</span>
+                    <span class="experience-period">2023 - Presente</span>
+                </div>
+                <p class="experience-title">Senior DevOps Engineer</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Liderando iniciativas de infraestructura cloud-native, implementando CI/CD pipelines y gestionando entornos Kubernetes en AWS.</p>
+            </div>
+            <div class="experience-card">
+                <div class="experience-header">
+                    <span class="experience-company">Globant</span>
+                    <span class="experience-period">2022 - 2023</span>
+                </div>
+                <p class="experience-title">DevOps Engineer</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Diseño y implementación de pipelines de despliegue automatizado, gestión de infraestructura como código con Terraform.</p>
+            </div>
+            <div class="experience-card">
+                <div class="experience-header">
+                    <span class="experience-company">Koibanx</span>
+                    <span class="experience-period">2020 - 2022</span>
+                </div>
+                <p class="experience-title">Jr. DevOps Engineer</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Automatización de procesos con scripts Bash y Python, administración de contenedores Docker y configuración de pipelines CI/CD.</p>
             </div>
         </section>
 
-        <!-- Skills -->
+        <section>
+            <h2 class="section-title">Certificaciones</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <div class="cert-badge">🏆 AWS Solutions Architect Associate SAA-C03</div>
+                <div class="cert-badge">📜 Certified Kubernetes Administrator (CKA)</div>
+                <div class="cert-badge">🔧 HashiCorp Terraform Associate</div>
+            </div>
+        </section>
+
         <section>
             <h2 class="section-title">Skills</h2>
             <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>☁️ Cloud & IaC</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">GCP</span>
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">CloudFormation</span>
+                        <span class="skill-tag">Ansible</span>
+                        <span class="skill-tag">Pulumi</span>
+                    </div>
+                </div>
                 <div class="skill-card">
                     <h3>🐳 Container & Orchestration</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Docker</span>
                         <span class="skill-tag">Kubernetes</span>
                         <span class="skill-tag">Helm</span>
+                        <span class="skill-tag">EKS</span>
                         <span class="skill-tag">Docker Compose</span>
                     </div>
                 </div>
                 <div class="skill-card">
-                    <h3>☁️ Cloud & Infrastructure</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Terraform</span>
-                        <span class="skill-tag">IaC</span>
-                        <span class="skill-tag">S3</span>
-                        <span class="skill-tag">EC2</span>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <h3>🔧 CI/CD & Automation</h3>
+                    <h3>🔄 CI/CD & Automation</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">GitHub Actions</span>
-                        <span class="skill-tag">Jenkins</span>
                         <span class="skill-tag">GitLab CI</span>
+                        <span class="skill-tag">Azure DevOps</span>
+                        <span class="skill-tag">Jenkins</span>
                         <span class="skill-tag">ArgoCD</span>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <h3>🐍 Programming</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Bash</span>
-                        <span class="skill-tag">Click</span>
-                        <span class="skill-tag">Django</span>
                     </div>
                 </div>
                 <div class="skill-card">
@@ -406,23 +445,55 @@
                     <div class="skill-tags">
                         <span class="skill-tag">Prometheus</span>
                         <span class="skill-tag">Grafana</span>
-                        <span class="skill-tag">ELK Stack</span>
                         <span class="skill-tag">Datadog</span>
+                        <span class="skill-tag">ELK Stack</span>
+                        <span class="skill-tag">Loki</span>
+                        <span class="skill-tag">Jaeger</span>
+                        <span class="skill-tag">OpenTelemetry</span>
                     </div>
                 </div>
                 <div class="skill-card">
-                    <h3>🗄️ Databases & Cache</h3>
+                    <h3>💻 Programming</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Go</span>
+                        <span class="skill-tag">Bash</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">YAML</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>🗄️ Databases & Messaging</h3>
+                    <div class="skill-tags">
                         <span class="skill-tag">PostgreSQL</span>
                         <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">DynamoDB</span>
+                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">RabbitMQ</span>
+                        <span class="skill-tag">Kafka</span>
+                        <span class="skill-tag">SQS</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>🔒 Security & Compliance</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Vault</span>
+                        <span class="skill-tag">OpenVAS</span>
+                        <span class="skill-tag">Trivy</span>
+                        <span class="skill-tag">SonarQube</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects -->
+        <section>
+            <h2 class="section-title">Educación</h2>
+            <div class="skill-card">
+                <h3>Universidad Católica del Uruguay</h3>
+                <p style="color: var(--text-muted);">Licenciatura en Ciencias de la Computación | 2019 - 2024</p>
+            </div>
+        </section>
+
         <section>
             <h2 class="section-title">Proyectos Destacados</h2>
             <div class="projects-grid">
@@ -430,7 +501,7 @@
                     <div class="project-header">
                         <span class="project-name">deployment-monitor</span>
                     </div>
-                    <p class="project-desc">Monitoreo de deployments en tiempo real con rollback automático y notificaciones.</p>
+                    <p class="project-desc">Monitoreo de deployments en tiempo real con rollback automático y notificaciones Slack.</p>
                     <div class="project-tech">
                         <span class="skill-tag">Python</span>
                         <span class="skill-tag">Kubernetes</span>
@@ -472,17 +543,6 @@
                 </div>
                 <div class="project-card">
                     <div class="project-header">
-                        <span class="project-name">log-analyzer</span>
-                    </div>
-                    <p class="project-desc">Parser inteligente de logs con métricas, detección de errores y anomalías.</p>
-                    <div class="project-tech">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Regex</span>
-                        <span class="skill-tag">JSON</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-header">
                         <span class="project-name">ssl-cert-checker</span>
                     </div>
                     <p class="project-desc">Verificador de certificados SSL con alertas de expiración.</p>
@@ -492,10 +552,20 @@
                         <span class="skill-tag">OpenSSL</span>
                     </div>
                 </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-name">terraform-deployer</span>
+                    </div>
+                    <p class="project-desc">CLI para gestionar despliegues Terraform con state locking y workspaces.</p>
+                    <div class="project-tech">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">Click</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Contact -->
         <section>
             <h2 class="section-title">Contacto</h2>
             <div class="contact-card">
@@ -505,16 +575,19 @@
                 </p>
                 <div class="contact-links">
                     <a href="https://github.com/danilovera36" class="contact-link" target="_blank">GitHub Profile</a>
-                    <a href="https://linkedin.com" class="contact-link" target="_blank">LinkedIn</a>
-                    <a href="mailto:danilo@example.com" class="contact-link">Email Me</a>
+                    <a href="https://linkedin.com/in/danilo-vera-devops" class="contact-link" target="_blank">LinkedIn</a>
+                    <a href="mailto:daniloverauy@gmail.com" class="contact-link">Email Me</a>
                 </div>
+                <p style="color: var(--text-muted); margin-top: 1rem; font-size: 0.9rem;">
+                    📱 +598 98 381 639
+                </p>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>Built with ❤️ | © 2026 Danilo Vera</p>
+            <p>Built with ❤️ | © 2026 Danilo Vera | DevOps Engineer</p>
         </div>
     </footer>
 </body>
