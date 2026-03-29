@@ -6,22 +6,21 @@
 
 ### 🎯 Sobre Mí
 
-- 💼 **Senior DevOps Engineer** con **4+ años de experiencia** en la industria tech
-- 🏢Actualmente en **Intive**, anteriormente en **Globant** y **Koibanx**
-- 🎓 Lic. en Ciencias de la Computación - Universidad Católica del Uruguay
-- 🛠️ Especialista en **Cloud Native**, **Kubernetes**, **AWS** y **Terraform**
+- 💼 **Senior DevOps Engineer** especializado en **Cloud Native**, **Kubernetes** y **AWS**
+- 🛠️ Construyo herramientas que simplifican el trabajo operativo y mejoran la eficiencia
 - 📈 +11 proyectos open source con +560 tests automatizados
+- 🎓 CKA, AWS Solutions Architect Associate y Terraform Associate certified
 - 🎨 Portfolio: [danilovera36.github.io](https://danilovera36.github.io)
 
 ---
 
 ### 🏆 Certificaciones
 
-| Certificación | Issuer | Estado |
-|---------------|--------|--------|
-| AWS Solutions Architect Associate SAA-C03 | Amazon Web Services | ✅ Verificado |
-| Certified Kubernetes Administrator (CKA) | Cloud Native Computing Foundation | ✅ Verificado |
-| HashiCorp Terraform Associate | HashiCorp | ✅ Verificado |
+| Certificación | Issuer |
+|---------------|--------|
+| AWS Solutions Architect Associate SAA-C03 | Amazon Web Services |
+| Certified Kubernetes Administrator (CKA) | Cloud Native Computing Foundation |
+| HashiCorp Terraform Associate | HashiCorp |
 
 ---
 
@@ -43,7 +42,7 @@
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 ![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white)
 ![Helm](https://img.shields.io/badge/Helm-0F1689?style=flat-square&logo=helm&logoColor=white)
-![EKS](https://img.shields.io/badge/EKS-FF9900?style=flat-square&logo=amazon-eks&logoColor=white)
+![ECS](https://img.shields.io/badge/ECS-FF9900?style=flat-square&logo=amazon-ecs&logoColor=white)
 
 </details>
 
@@ -53,7 +52,7 @@
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white)
 ![GitLab CI](https://img.shields.io/badge/GitLab_CI-FC6D26?style=flat-square&logo=gitlab&logoColor=white)
 ![Jenkins](https://img.shields.io/badge/Jenkins-D33833?style=flat-square&logo=jenkins&logoColor=white)
-![Azure DevOps](https://img.shields.io/badge/Azure_DevOps-0078D4?style=flat-square&logo=azure-devops&logoColor=white)
+![ArgoCD](https://img.shields.io/badge/ArgoCD-EF7B4D?style=flat-square&logo=argo&logoColor=white)
 
 </details>
 
@@ -77,24 +76,21 @@
 
 </details>
 
-<details>
-<summary><b>🔒 Security</b></summary>
-
-![Vault](https://img.shields.io/badge/Vault-000000?style=flat-square&logo=vault&logoColor=white)
-![Trivy](https://img.shields.io/badge/Trivy-1900DA?style=flat-square&logo=trivy&logoColor=white)
-![SonarQube](https://img.shields.io/badge/SonarQube-4E9BCD?style=flat-square&logo=sonarqube&logoColor=white)
-
-</details>
-
 ---
 
-### 💼 Experiencia
+### 🚀 Proyectos Destacados
 
-| Empresa | Período | Rol |
-|---------|---------|-----|
-| **Intive** | 2023 - Presente | Senior DevOps Engineer |
-| **Globant** | 2022 - 2023 | DevOps Engineer |
-| **Koibanx** | 2020 - 2022 | Jr. DevOps Engineer |
+| Proyecto | Descripción | Tech |
+|----------|-------------|------|
+| [ecspresso](https://github.com/danilovera36/ecspresso) | Gestión centralizada de vars y secrets AWS SSM para ECS | Python, FastAPI, AWS SSM, ECS |
+| [redis-audit-panel](https://github.com/danilovera36/redis-audit-panel) | Panel web para auditar Redis con RBAC y Google SSO | Django, React, Redis, Docker |
+| [deployment-monitor](https://github.com/danilovera36/deployment-monitor) | Monitoreo de deploys + rollback automático | Python, K8s, Slack |
+| [env-vault](https://github.com/danilovera36/env-vault) | Encriptación AES-256 para .env | Python, Cryptography, AWS KMS |
+| [k8s-resource-exporter](https://github.com/danilovera36/k8s-resource-exporter) | Exportador de recursos K8s | Python, K8s API, Jinja2 |
+| [secrets-scanner](https://github.com/danilovera36/secrets-scanner) | Detector de secrets expuestos | Python, Regex |
+| [ssl-cert-checker](https://github.com/danilovera36/ssl-cert-checker) | Verificador de certificados SSL | Python, SSL/TLS |
+| [terraform-deployer](https://github.com/danilovera36/terraform-deployer) | CLI para gestionar Terraform | Python, Terraform |
+| [log-analyzer](https://github.com/danilovera36/log-analyzer) | Parser inteligente de logs | Python, Regex |
 
 ---
 
@@ -104,27 +100,6 @@
   <img src="https://github-readme-stats.vercel.app/api?username=danilovera36&theme=tokyonight&hide_border=false&include_all_commits=true&count_private=true" alt="Stats" height="180"/>
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=danilovera36&theme=tokyonight&hide_border=false&layout=compact&langs_count=10" alt="Top Langs" height="180"/>
 </p>
-
----
-
-### 🚀 Proyectos Destacados
-
-| Proyecto | Descripción | Tech |
-|----------|-------------|------|
-| [deployment-monitor](https://github.com/danilovera36/deployment-monitor) | Monitoreo de deploys + rollback automático | Python, K8s, Slack |
-| [env-vault](https://github.com/danilovera36/env-vault) | Encriptación AES-256 para .env | Python, Cryptography, AWS KMS |
-| [k8s-resource-exporter](https://github.com/danilovera36/k8s-resource-exporter) | Exportador de recursos K8s | Python, K8s API, Jinja2 |
-| [secrets-scanner](https://github.com/danilovera36/secrets-scanner) | Detector de secrets expuestos | Python, Regex |
-| [ssl-cert-checker](https://github.com/danilovera36/ssl-cert-checker) | Verificador de certificados SSL | Python, SSL/TLS |
-| [terraform-deployer](https://github.com/danilovera36/terraform-deployer) | CLI para gestionar Terraform | Python, Terraform |
-| [log-analyzer](https://github.com/danilovera36/log-analyzer) | Parser inteligente de logs | Python, Regex |
-| [cron-watchdog](https://github.com/danilovera36/cron-watchdog) | Supervisor de jobs cron | Python, Bash |
-
----
-
-### 📈 Actividad
-
-![Activity](https://github-readme-activity-graph.vercel.app/graph?username=danilovera36&theme=tokyonight&hide_border=true&area=true)
 
 ---
 
@@ -145,5 +120,4 @@
   <img src="https://img.shields.io/badge/Tests-560%2B-brightgreen?style=flat-square"/>
   <img src="https://img.shields.io/badge/Projects-11%2B-blue?style=flat-square"/>
   <img src="https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-purple?style=flat-square"/>
-  <img src="https://img.shields.io/badge/Years-4%2B%20Experience-orange?style=flat-square"/>
 </p>

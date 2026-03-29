@@ -242,38 +242,6 @@
             font-size: 0.85rem;
         }
 
-        .experience-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-company {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text);
-        }
-
-        .experience-period {
-            color: var(--accent);
-            font-size: 0.9rem;
-        }
-
-        .experience-title {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 0.75rem;
-        }
-
         .cert-badge {
             display: inline-flex;
             align-items: center;
@@ -351,16 +319,16 @@
         <section>
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number">4+</div>
-                    <div class="stat-label">Años de Experiencia</div>
-                </div>
-                <div class="stat-card">
                     <div class="stat-number">11+</div>
                     <div class="stat-label">Proyectos</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">560+</div>
                     <div class="stat-label">Tests</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">CI/CD</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">3</div>
@@ -370,30 +338,13 @@
         </section>
 
         <section>
-            <h2 class="section-title">Experiencia</h2>
-            <div class="experience-card">
-                <div class="experience-header">
-                    <span class="experience-company">Intive</span>
-                    <span class="experience-period">2023 - Presente</span>
-                </div>
-                <p class="experience-title">Senior DevOps Engineer</p>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Liderando iniciativas de infraestructura cloud-native, implementando CI/CD pipelines y gestionando entornos Kubernetes en AWS.</p>
-            </div>
-            <div class="experience-card">
-                <div class="experience-header">
-                    <span class="experience-company">Globant</span>
-                    <span class="experience-period">2022 - 2023</span>
-                </div>
-                <p class="experience-title">DevOps Engineer</p>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Diseño y implementación de pipelines de despliegue automatizado, gestión de infraestructura como código con Terraform.</p>
-            </div>
-            <div class="experience-card">
-                <div class="experience-header">
-                    <span class="experience-company">Koibanx</span>
-                    <span class="experience-period">2020 - 2022</span>
-                </div>
-                <p class="experience-title">Jr. DevOps Engineer</p>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Automatización de procesos con scripts Bash y Python, administración de contenedores Docker y configuración de pipelines CI/CD.</p>
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="skill-card">
+                <p style="color: var(--text-muted); line-height: 1.8;">
+                    DevOps Engineer apasionado por la automatización, infraestructura como código y sistemas resilientes. 
+                    Especializado en Kubernetes, AWS, Terraform y CI/CD. Construyo herramientas que simplifican el trabajo 
+                    operativo y mejoran la eficiencia de los equipos de desarrollo. CKA, AWS Solutions Architect Associate y Terraform Associate certified.
+                </p>
             </div>
         </section>
 
@@ -417,7 +368,6 @@
                         <span class="skill-tag">Terraform</span>
                         <span class="skill-tag">CloudFormation</span>
                         <span class="skill-tag">Ansible</span>
-                        <span class="skill-tag">Pulumi</span>
                     </div>
                 </div>
                 <div class="skill-card">
@@ -427,7 +377,7 @@
                         <span class="skill-tag">Kubernetes</span>
                         <span class="skill-tag">Helm</span>
                         <span class="skill-tag">EKS</span>
-                        <span class="skill-tag">Docker Compose</span>
+                        <span class="skill-tag">ECS</span>
                     </div>
                 </div>
                 <div class="skill-card">
@@ -435,7 +385,6 @@
                     <div class="skill-tags">
                         <span class="skill-tag">GitHub Actions</span>
                         <span class="skill-tag">GitLab CI</span>
-                        <span class="skill-tag">Azure DevOps</span>
                         <span class="skill-tag">Jenkins</span>
                         <span class="skill-tag">ArgoCD</span>
                     </div>
@@ -447,9 +396,6 @@
                         <span class="skill-tag">Grafana</span>
                         <span class="skill-tag">Datadog</span>
                         <span class="skill-tag">ELK Stack</span>
-                        <span class="skill-tag">Loki</span>
-                        <span class="skill-tag">Jaeger</span>
-                        <span class="skill-tag">OpenTelemetry</span>
                     </div>
                 </div>
                 <div class="skill-card">
@@ -459,44 +405,47 @@
                         <span class="skill-tag">Go</span>
                         <span class="skill-tag">Bash</span>
                         <span class="skill-tag">TypeScript</span>
-                        <span class="skill-tag">YAML</span>
                     </div>
                 </div>
                 <div class="skill-card">
-                    <h3>🗄️ Databases & Messaging</h3>
+                    <h3>🗄️ Databases & Cache</h3>
                     <div class="skill-tags">
+                        <span class="skill-tag">Redis</span>
                         <span class="skill-tag">PostgreSQL</span>
                         <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">Redis</span>
                         <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">RabbitMQ</span>
-                        <span class="skill-tag">Kafka</span>
-                        <span class="skill-tag">SQS</span>
                     </div>
                 </div>
-                <div class="skill-card">
-                    <h3>🔒 Security & Compliance</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Vault</span>
-                        <span class="skill-tag">OpenVAS</span>
-                        <span class="skill-tag">Trivy</span>
-                        <span class="skill-tag">SonarQube</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2 class="section-title">Educación</h2>
-            <div class="skill-card">
-                <h3>Universidad Católica del Uruguay</h3>
-                <p style="color: var(--text-muted);">Licenciatura en Ciencias de la Computación | 2019 - 2024</p>
             </div>
         </section>
 
         <section>
             <h2 class="section-title">Proyectos Destacados</h2>
             <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-name">ecspresso</span>
+                    </div>
+                    <p class="project-desc">Gestión centralizada de variables de entorno y secrets AWS SSM para despliegues ECS con API FastAPI y CLI interactiva.</p>
+                    <div class="project-tech">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">AWS SSM</span>
+                        <span class="skill-tag">ECS</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-name">redis-audit-panel</span>
+                    </div>
+                    <p class="project-desc">Panel web para gestionar y auditar entornos Redis con soporte multi-ambiente, RBAC, Google SSO y métricas en tiempo real.</p>
+                    <div class="project-tech">
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">Docker</span>
+                    </div>
+                </div>
                 <div class="project-card">
                     <div class="project-header">
                         <span class="project-name">deployment-monitor</span>
@@ -539,28 +488,6 @@
                         <span class="skill-tag">Python</span>
                         <span class="skill-tag">Regex</span>
                         <span class="skill-tag">YAML</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <span class="project-name">ssl-cert-checker</span>
-                    </div>
-                    <p class="project-desc">Verificador de certificados SSL con alertas de expiración.</p>
-                    <div class="project-tech">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">SSL/TLS</span>
-                        <span class="skill-tag">OpenSSL</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <span class="project-name">terraform-deployer</span>
-                    </div>
-                    <p class="project-desc">CLI para gestionar despliegues Terraform con state locking y workspaces.</p>
-                    <div class="project-tech">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Terraform</span>
-                        <span class="skill-tag">Click</span>
                     </div>
                 </div>
             </div>
