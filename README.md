@@ -111,8 +111,8 @@
   <a href="mailto:daniloverauy@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/></a>
 </p>
 
-**Email:** daniloverauy@gmail.com  
-**Phone:** +598 98 381 639
+**Email:** danilovera24@gmail.com  
+**Phone:** +598 98 992 320
 
 ---
 
