@@ -41,12 +41,122 @@
             transition: width 0.1s;
         }
 
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 0.75rem 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-family: 'JetBrains Mono', monospace;
+            transition: all 0.3s;
+            padding: 0.25rem 0;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-hire {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary) !important;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+        }
+
+        .nav-hire:hover {
+            background: var(--primary);
+            color: var(--bg) !important;
+            box-shadow: 0 0 20px var(--glow);
+        }
+
+        .nav-hire::after {
+            display: none !important;
+        }
+
         body {
             font-family: 'Inter', -apple-system, sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
+            padding-top: 60px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-card);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+                border-bottom: 1px solid var(--border);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
         }
 
         a {
@@ -796,6 +906,217 @@
             font-size: 0.8rem;
         }
 
+        .terminal {
+            background: #0d0d12;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            font-family: 'JetBrains Mono', monospace;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .terminal-header {
+            background: #16161e;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red { background: #ff5f56; }
+        .terminal-dot.yellow { background: #ffbd2e; }
+        .terminal-dot.green { background: #27c93f; }
+
+        .terminal-title {
+            margin-left: 1rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        .terminal-body {
+            padding: 1.5rem;
+            min-height: 200px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .terminal-line {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .terminal-prompt {
+            color: var(--accent);
+        }
+
+        .terminal-command {
+            color: var(--primary);
+        }
+
+        .terminal-output {
+            color: var(--text-muted);
+            padding-left: 1rem;
+        }
+
+        .terminal-success {
+            color: var(--primary);
+        }
+
+        .terminal-error {
+            color: #ff5f56;
+        }
+
+        .terminal-warning {
+            color: #ffbd2e;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .impact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .impact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--accent));
+        }
+
+        .impact-metric {
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .impact-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .case-study {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .case-study:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 30px var(--glow);
+            transform: translateY(-3px);
+        }
+
+        .case-study-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-study-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .case-study-badge {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .case-study-section {
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 2px solid var(--border);
+        }
+
+        .case-study-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-study-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.25rem;
+        }
+
+        .case-study-label.problem { color: #ff5f56; }
+        .case-study-label.solution { color: var(--accent); }
+        .case-study-label.result { color: var(--primary); }
+
+        .case-study-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .case-study-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .case-study-image {
+            margin-top: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .case-study-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .blinking-cursor {
+            animation: blink 1s infinite;
+        }
+
         @media (max-width: 768px) {
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -820,6 +1141,21 @@
     <div class="bg-grid"></div>
     <div class="bg-glow bg-glow-1"></div>
     <div class="bg-glow bg-glow-2"></div>
+
+    <nav>
+        <div class="container">
+            <a href="#" class="nav-logo">DV_</a>
+            <div class="nav-links" id="navLinks">
+                <a href="#about">About</a>
+                <a href="#impact">Impacto</a>
+                <a href="#terminal">Terminal</a>
+                <a href="#projects">Proyectos</a>
+                <a href="#certs">Certs</a>
+                <a href="mailto:danilovera24@gmail.com" class="nav-hire">Contrátame</a>
+            </div>
+            <button class="mobile-menu-btn" onclick="document.getElementById('navLinks').classList.toggle('active')">☰</button>
+        </div>
+    </nav>
 
     <header>
         <div class="container">
@@ -850,28 +1186,83 @@
 
     <main class="container">
         <!-- Stats -->
-        <section>
+        <section id="impact">
             <div class="section-header">
                 <span class="section-icon">📊</span>
-                <h2 class="section-title">Metrics</h2>
+                <h2 class="section-title">Impacto Real</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">12+</div>
-                    <div class="stat-label">Years Experience</div>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-metric">-85%</div>
+                    <div class="impact-title">Tiempo de Deploy</div>
+                    <div class="impact-desc">De 4 horas a 30 minutos automatizando pipelines CI/CD con GitHub Actions</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">11+</div>
-                    <div class="stat-label">Open Source Projects</div>
+                <div class="impact-card">
+                    <div class="impact-metric">99.9%</div>
+                    <div class="impact-title">Uptime de Infraestructura</div>
+                    <div class="impact-desc">Implementando Kubernetes con auto-scaling y health checks en AWS</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">560+</div>
-                    <div class="stat-label">Automated Tests</div>
+                <div class="impact-card">
+                    <div class="impact-metric">+200</div>
+                    <div class="impact-title">Horas/mes ahorradas</div>
+                    <div class="impact-desc">En scripting de automatización y monitoreo proactivo con Grafana</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">25+</div>
-                    <div class="stat-label">Certifications</div>
+                <div class="impact-card">
+                    <div class="impact-metric">10+</div>
+                    <div class="impact-title">Equipos capacitados</div>
+                    <div class="impact-desc">Formando desarrolladores en DevOps, Docker y prácticas cloud-native</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="terminal">
+            <div class="section-header">
+                <span class="section-icon">⌨️</span>
+                <h2 class="section-title">Mi Terminal</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="terminal">
+                <div class="terminal-header">
+                    <span class="terminal-dot red"></span>
+                    <span class="terminal-dot yellow"></span>
+                    <span class="terminal-dot green"></span>
+                    <span class="terminal-title">danilo@devops: ~</span>
+                </div>
+                <div class="terminal-body" id="terminalBody">
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">danilo@devops:~$</span>
+                        <span class="terminal-command">kubectl get pods -n production</span>
+                    </div>
+                    <div class="terminal-line terminal-output">
+                        NAME                        READY   STATUS    RESTARTS   AGE<br>
+                        api-gateway-7d9f8b-xk2p     1/1     Running   0          15d<br>
+                        auth-service-5c4d9f-q8r3    1/1     Running   0          23d<br>
+                        worker-6f8c2d-l9n1          1/1     Running   2          7d<br>
+                        redis-cache-0               1/1     Running   0          45d
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">danilo@devops:~$</span>
+                        <span class="terminal-command">terraform plan -out=prod.tfplan</span>
+                    </div>
+                    <div class="terminal-line terminal-success">
+                        ✓ Plan: 2 to add, 0 to change, 0 to destroy
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">danilo@devops:~$</span>
+                        <span class="terminal-command">docker-compose up -d --build</span>
+                    </div>
+                    <div class="terminal-line terminal-success">
+                        ✓ Building ecspresso-api... done<br>
+                        ✓ Building redis-audit... done<br>
+                        ✓ Network created: devnet<br>
+                        ✓ Container started: ecspresso_api<br>
+                        ✓ Container started: redis_audit_panel
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">danilo@devops:~$</span>
+                        <span class="terminal-command blinking-cursor">_</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1221,105 +1612,116 @@
         </section>
 
         <!-- Projects -->
-        <section>
+        <section id="projects">
             <div class="section-header">
                 <span class="section-icon">🚀</span>
-                <h2 class="section-title">Featured Projects</h2>
+                <h2 class="section-title">Case Studies</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="ui-login.png" alt="ecspresso login">
-                    </div>
-                    <div class="project-header">
-                        <span class="project-name">ecspresso</span>
-                        <a href="https://github.com/danilovera36/ecspresso" class="project-link" target="_blank">🔗</a>
-                    </div>
-                    <p class="project-desc">Gestión centralizada de variables de entorno y secrets AWS SSM para despliegues ECS. API FastAPI + CLI interactiva.</p>
-                    <div class="project-tech">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">FastAPI</span>
-                        <span class="skill-tag">AWS SSM</span>
-                        <span class="skill-tag">ECS</span>
-                    </div>
+
+            <div class="case-study">
+                <div class="case-study-header">
+                    <span class="case-study-title">ecspresso</span>
+                    <span class="case-study-badge">⭐ Destacado</span>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-image-placeholder">🗄️</div>
-                    </div>
-                    <div class="project-header">
-                        <span class="project-name">redis-audit-panel</span>
-                        <a href="https://github.com/danilovera36/redis-audit-panel" class="project-link" target="_blank">🔗</a>
-                    </div>
-                    <p class="project-desc">Panel web para gestionar y auditar entornos Redis. Multi-ambiente, RBAC, Google SSO, métricas en tiempo real.</p>
-                    <div class="project-tech">
-                        <span class="skill-tag">Django</span>
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Redis</span>
-                        <span class="skill-tag">Docker</span>
-                    </div>
+                <div class="case-study-section">
+                    <div class="case-study-label problem">Problema</div>
+                    <p class="case-study-text">Gestionar secrets y variables de entorno en múltiples servicios ECS era caótico: valores hardcodeados, rotación manual, riesgo de exposición.</p>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-image-placeholder">🚀</div>
-                    </div>
-                    <div class="project-header">
-                        <span class="project-name">deployment-monitor</span>
-                        <a href="https://github.com/danilovera36/deployment-monitor" class="project-link" target="_blank">🔗</a>
-                    </div>
-                    <p class="project-desc">Monitoreo de deployments en tiempo real con rollback automático y notificaciones Slack.</p>
-                    <div class="project-tech">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Kubernetes</span>
-                        <span class="skill-tag">Slack API</span>
-                    </div>
+                <div class="case-study-section">
+                    <div class="case-study-label solution">Solución</div>
+                    <p class="case-study-text">Herramienta centralizada con API FastAPI para administrar secrets en AWS SSM Parameter Store + CLI interactiva para developers.</p>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-image-placeholder">🔐</div>
-                    </div>
-                    <div class="project-header">
-                        <span class="project-name">env-vault</span>
-                        <a href="https://github.com/danilovera36/env-vault" class="project-link" target="_blank">🔗</a>
-                    </div>
-                    <p class="project-desc">CLI para encriptar archivos .env con AES-256 y soporte para AWS KMS.</p>
-                    <div class="project-tech">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Cryptography</span>
-                        <span class="skill-tag">AWS KMS</span>
-                    </div>
+                <div class="case-study-section">
+                    <div class="case-study-label result">Resultado</div>
+                    <p class="case-study-text">Zero secrets hardcodeados, rotación automatizada, tiempo de setup de nuevos servicios: de horas a minutos.</p>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-image-placeholder">📊</div>
-                    </div>
-                    <div class="project-header">
-                        <span class="project-name">k8s-resource-exporter</span>
-                        <a href="https://github.com/danilovera36/k8s-resource-exporter" class="project-link" target="_blank">🔗</a>
-                    </div>
-                    <p class="project-desc">Exporta recursos de Kubernetes a YAML, JSON o HTML con reportes visuales.</p>
-                    <div class="project-tech">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">K8s API</span>
-                        <span class="skill-tag">Jinja2</span>
-                    </div>
+                <div class="case-study-tech">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">FastAPI</span>
+                    <span class="skill-tag">AWS SSM</span>
+                    <span class="skill-tag">ECS</span>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-image-placeholder">🔍</div>
-                    </div>
-                    <div class="project-header">
-                        <span class="project-name">secrets-scanner</span>
-                        <a href="https://github.com/danilovera36/secrets-scanner" class="project-link" target="_blank">🔗</a>
-                    </div>
-                    <p class="project-desc">Detector de secrets y API keys expuestas en repositorios Git.</p>
-                    <div class="project-tech">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Regex</span>
-                        <span class="skill-tag">YAML</span>
-                    </div>
+                <div class="case-study-image">
+                    <img src="ui-login.png" alt="ecspresso UI">
                 </div>
+                <a href="https://github.com/danilovera36/ecspresso" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary);">Ver código →</a>
+            </div>
+
+            <div class="case-study">
+                <div class="case-study-header">
+                    <span class="case-study-title">redis-audit-panel</span>
+                    <span class="case-study-badge">Full Stack</span>
+                </div>
+                <div class="case-study-section">
+                    <div class="case-study-label problem">Problema</div>
+                    <p class="case-study-text">El equipo no tenía visibilidad de qué Redis usaban los servicios, imposible auditar keys sensibles, sin control de acceso por ambiente.</p>
+                </div>
+                <div class="case-study-section">
+                    <div class="case-study-label solution">Solución</div>
+                    <p class="case-study-text">Dashboard Django + React con RBAC, Google SSO, métricas en tiempo real y exportación de datos.</p>
+                </div>
+                <div class="case-study-section">
+                    <div class="case-study-label result">Resultado</div>
+                    <p class="case-study-text">Visibilidad completa del uso de Redis, compliance achieved, incidentes por mal uso reducidos a cero.</p>
+                </div>
+                <div class="case-study-tech">
+                    <span class="skill-tag">Django</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Redis</span>
+                    <span class="skill-tag">Docker</span>
+                </div>
+                <a href="https://github.com/danilovera36/redis-audit-panel" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary);">Ver código →</a>
+            </div>
+
+            <div class="case-study">
+                <div class="case-study-header">
+                    <span class="case-study-title">deployment-monitor</span>
+                </div>
+                <div class="case-study-section">
+                    <div class="case-study-label problem">Problema</div>
+                    <p class="case-study-text">Deploys manuales con riesgo humano, sin visibilidad del estado, rollback lento y notificaciones inexistentes.</p>
+                </div>
+                <div class="case-study-section">
+                    <div class="case-study-label solution">Solución</div>
+                    <p class="case-study-text">Pipeline automatizado que monitorea health checks, detecta fallos y ejecuta rollback automático con alertas a Slack.</p>
+                </div>
+                <div class="case-study-section">
+                    <div class="case-study-label result">Resultado</div>
+                    <p class="case-study-text">Deploys seguros 24/7, rollback en < 1 min, equipo informado en tiempo real via Slack.</p>
+                </div>
+                <div class="case-study-tech">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Kubernetes</span>
+                    <span class="skill-tag">Slack API</span>
+                    <span class="skill-tag">Health Checks</span>
+                </div>
+                <a href="https://github.com/danilovera36/deployment-monitor" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary);">Ver código →</a>
+            </div>
+
+            <div class="case-study">
+                <div class="case-study-header">
+                    <span class="case-study-title">env-vault</span>
+                </div>
+                <div class="case-study-section">
+                    <div class="case-study-label problem">Problema</div>
+                    <p class="case-study-text">Archivos .env en repositorios Git, exposición de credenciales, sin encriptación ni rotación automática.</p>
+                </div>
+                <div class="case-study-section">
+                    <div class="case-study-label solution">Solución</div>
+                    <p class="case-study-text">CLI que encripta .env con AES-256, integra con AWS KMS para gestión de claves, commiteable seguro.</p>
+                </div>
+                <div class="case-study-section">
+                    <div class="case-study-label result">Resultado</div>
+                    <p class="case-study-text">Zero credenciales en texto plano en repos, auditoría de acceso vía CloudTrail, compliance mejorado.</p>
+                </div>
+                <div class="case-study-tech">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">AES-256</span>
+                    <span class="skill-tag">AWS KMS</span>
+                    <span class="skill-tag">Cryptography</span>
+                </div>
+                <a href="https://github.com/danilovera36/env-vault" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary);">Ver código →</a>
             </div>
         </section>
 
@@ -1409,6 +1811,26 @@
             if (statsGrid) observer.observe(statsGrid);
         }
 
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a:not(.nav-hire)');
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
         function updateScrollProgress() {
             const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -1417,6 +1839,7 @@
         }
 
         window.addEventListener('scroll', updateScrollProgress);
+        window.addEventListener('scroll', updateActiveNav);
 
         const texts = [
             "Building resilient infrastructure...",
