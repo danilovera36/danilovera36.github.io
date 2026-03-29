@@ -141,6 +141,7 @@
             z-index: 1;
             box-shadow: 0 0 60px var(--glow);
             overflow: hidden;
+            border: 3px solid var(--primary);
         }
 
         .profile-img img {
@@ -648,6 +649,62 @@
             color: var(--primary);
         }
 
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .testimonial-quote {
+            font-size: 4rem;
+            color: var(--primary);
+            line-height: 1;
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        .testimonial-text {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .testimonial-info strong {
+            display: block;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        .testimonial-info span {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
         @media (max-width: 768px) {
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -677,7 +734,7 @@
             <div class="profile-container">
                 <div class="profile-ring"></div>
                 <div class="profile-ring"></div>
-                <div class="profile-img">DV</div>
+                <div class="profile-img"><img src="profile.jpg" alt="Danilo Vera"></div>
             </div>
             
             <div class="typing-container">
@@ -784,6 +841,37 @@
                     </div>
                     <div class="console-line">
                         <span>25+ certifications</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section>
+            <div class="section-header">
+                <span class="section-icon">💬</span>
+                <h2 class="section-title">Testimonials</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">Recomiendo ampliamente a Danilo. Tuve el placer de ver de cerca su evolución profesional, donde demostró una capacidad excepcional para escalar desde roles de soporte hasta convertirse en un pilar fundamental como DevOps. Su transición no fue solo de título, sino de mentalidad: implementó arquitecturas en la nube en AWS que transformaron nuestra escalabilidad. Danilo no solo soluciona problemas, sino que construye sistemas robustos y eficientes.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-info">
+                            <strong>Flavio Sacaba</strong>
+                            <span>Sr. Tech Lead at Prometeo OpenBanking</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">Danilo es un excelente profesional en el área de DevOps. Se destaca por su compromiso y por dar constantemente una milla extra en todo lo que hace. Dentro de nuestro equipo, tomó un rol clave como referente y formador en DevOps, liderando iniciativas de capacitación en AWS para los desarrolladores. Su capacidad para explicar conceptos complejos de forma clara, acompañar el proceso de aprendizaje y dar seguimiento continuo es un diferencial poco común.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-info">
+                            <strong>Victorio Scafati</strong>
+                            <span>Tech Lead | Python | InfoSec</span>
+                        </div>
                     </div>
                 </div>
             </div>
