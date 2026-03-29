@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danilo Vera | Senior DevOps Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2563eb;
-            --secondary: #1e40af;
-            --accent: #06b6d4;
-            --bg: #0f172a;
-            --bg-card: #1e293b;
-            --text: #f8fafc;
-            --text-muted: #94a3b8;
-            --border: #334155;
-            --success: #10b981;
-            --warning: #f59e0b;
+            --primary: #00d4ff;
+            --secondary: #7c3aed;
+            --accent: #00ff88;
+            --bg: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-card-hover: #1a1a25;
+            --text: #e4e4e7;
+            --text-muted: #71717a;
+            --border: #27272a;
+            --glow: rgba(0, 212, 255, 0.3);
         }
 
         * {
@@ -25,113 +25,308 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', -apple-system, sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         a {
-            color: var(--accent);
+            color: var(--primary);
             text-decoration: none;
-            transition: color 0.2s;
+            transition: all 0.3s;
         }
 
         a:hover {
-            color: var(--primary);
+            text-shadow: 0 0 20px var(--glow);
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
+        /* Animated Background */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-glow-1 {
+            top: -200px;
+            right: -200px;
+            background: var(--primary);
+        }
+
+        .bg-glow-2 {
+            bottom: -200px;
+            left: -200px;
+            background: var(--secondary);
+        }
+
+        /* Terminal Header */
+        .terminal-bar {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px 12px 0 0;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red { background: #ff5f56; }
+        .terminal-dot.yellow { background: #ffbd2e; }
+        .terminal-dot.green { background: #27ca40; }
+
+        .terminal-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Header */
         header {
-            padding: 8rem 0 4rem;
+            padding: 6rem 0 4rem;
             text-align: center;
-            background: linear-gradient(180deg, rgba(37,99,235,0.1) 0%, transparent 100%);
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 180px;
+            height: 180px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            animation: pulse-ring 2s ease-out infinite;
+        }
+
+        .profile-ring:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            animation-delay: 0.5s;
+            border-color: var(--secondary);
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
         }
 
         .profile-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 700;
-            margin: 0 auto 1.5rem;
-            box-shadow: 0 20px 40px rgba(37,99,235,0.3);
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 0 60px var(--glow);
+        }
+
+        .typing-container {
+            margin-top: 2rem;
+        }
+
+        .typing-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.5rem;
+            background: var(--primary);
+            margin-left: 5px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, var(--text), var(--accent));
+            margin: 1.5rem 0 0.5rem;
+            background: linear-gradient(135deg, var(--text), var(--primary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .title {
+        .subtitle {
             font-size: 1.25rem;
-            color: var(--accent);
-            font-weight: 500;
+            color: var(--text-muted);
             margin-bottom: 1rem;
         }
 
         .location {
-            color: var(--text-muted);
+            color: var(--accent);
             font-size: 1rem;
+            font-family: 'JetBrains Mono', monospace;
         }
 
         .social-links {
             display: flex;
             gap: 1rem;
             justify-content: center;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
         }
 
         .social-links a {
             padding: 0.75rem 1.5rem;
-            background: var(--bg-card);
+            background: transparent;
             border: 1px solid var(--border);
             border-radius: 8px;
             font-size: 0.9rem;
             font-weight: 500;
-            transition: all 0.2s;
+            transition: all 0.3s;
+            font-family: 'JetBrains Mono', monospace;
         }
 
         .social-links a:hover {
             border-color: var(--primary);
-            transform: translateY(-2px);
+            background: rgba(0, 212, 255, 0.1);
+            box-shadow: 0 0 20px var(--glow);
         }
 
+        /* Sections */
         section {
             padding: 4rem 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-icon {
+            font-size: 1.5rem;
         }
 
         .section-title {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 600;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+            color: var(--text);
         }
 
-        .section-title::before {
+        .section-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--border), transparent);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .stat-card::before {
             content: '';
-            width: 4px;
-            height: 24px;
-            background: linear-gradient(180deg, var(--primary), var(--accent));
-            border-radius: 2px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.3s;
         }
 
+        .stat-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Skills Grid */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -143,19 +338,23 @@
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 1.5rem;
-            transition: all 0.2s;
+            transition: all 0.3s;
         }
 
         .skill-card:hover {
             border-color: var(--primary);
-            transform: translateY(-2px);
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px var(--glow);
         }
 
         .skill-card h3 {
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 1rem;
-            color: var(--accent);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .skill-tags {
@@ -166,16 +365,61 @@
 
         .skill-tag {
             padding: 0.35rem 0.75rem;
-            background: rgba(37,99,235,0.1);
-            border: 1px solid rgba(37,99,235,0.3);
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.2);
             border-radius: 6px;
             font-size: 0.8rem;
             font-family: 'JetBrains Mono', monospace;
+            transition: all 0.3s;
         }
 
+        .skill-tag:hover {
+            background: rgba(0, 212, 255, 0.2);
+            border-color: var(--primary);
+        }
+
+        /* Certifications */
+        .certs-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .cert-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .cert-badge:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+        }
+
+        .cert-icon {
+            font-size: 2rem;
+        }
+
+        .cert-info h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .cert-info span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Projects Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 1.5rem;
         }
 
@@ -184,12 +428,25 @@
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 1.5rem;
-            transition: all 0.2s;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
         }
 
         .project-card:hover {
+            transform: translateY(-5px);
             border-color: var(--primary);
-            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
         }
 
         .project-header {
@@ -200,14 +457,28 @@
         }
 
         .project-name {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--primary);
+        }
+
+        .project-link {
+            color: var(--text-muted);
+            font-size: 1.25rem;
+            transition: all 0.3s;
+        }
+
+        .project-link:hover {
+            color: var(--primary);
+            transform: scale(1.2);
         }
 
         .project-desc {
             color: var(--text-muted);
             font-size: 0.9rem;
             margin-bottom: 1rem;
+            line-height: 1.6;
         }
 
         .project-tech {
@@ -216,49 +487,55 @@
             gap: 0.5rem;
         }
 
-        .stats-grid {
+        /* Tools Section */
+        .tools-container {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
-            margin-bottom: 2rem;
         }
 
-        .stat-card {
+        .tool-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .stat-label {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        .cert-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.3);
             border-radius: 8px;
-            margin: 0.25rem;
+            transition: all 0.3s;
         }
 
+        .tool-item:hover {
+            border-color: var(--primary);
+            transform: translateX(10px);
+        }
+
+        .tool-icon {
+            font-size: 1.5rem;
+        }
+
+        .tool-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Card */
         .contact-card {
-            background: linear-gradient(135deg, rgba(37,99,235,0.1), rgba(6,182,212,0.1));
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(124, 58, 237, 0.05));
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
+            border-radius: 16px;
+            padding: 3rem;
             text-align: center;
+        }
+
+        .contact-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
         }
 
         .contact-links {
@@ -269,96 +546,251 @@
         }
 
         .contact-link {
-            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 8px;
             font-weight: 500;
-            transition: all 0.2s;
+            transition: all 0.3s;
+            font-family: 'JetBrains Mono', monospace;
         }
 
         .contact-link:hover {
             border-color: var(--primary);
-            color: var(--accent);
+            background: rgba(0, 212, 255, 0.1);
+            box-shadow: 0 0 30px var(--glow);
+            transform: translateY(-3px);
         }
 
+        .contact-link-icon {
+            font-size: 1.25rem;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
-            padding: 2rem 0;
+            padding: 3rem 0;
+            border-top: 1px solid var(--border);
+            position: relative;
+            z-index: 1;
+        }
+
+        footer p {
             color: var(--text-muted);
             font-size: 0.9rem;
         }
 
+        footer a {
+            color: var(--primary);
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             h1 {
                 font-size: 2rem;
             }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* About Card */
+        .about-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .about-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-card .highlight {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* Console output style */
+        .console-output {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--accent);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .console-line {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .console-prompt {
+            color: var(--primary);
+        }
+
+        .console-success {
+            color: var(--accent);
+        }
+
+        .console-info {
+            color: var(--secondary);
         }
     </style>
 </head>
 <body>
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
     <header>
         <div class="container">
-            <div class="profile-img">DV</div>
+            <div class="profile-container">
+                <div class="profile-ring"></div>
+                <div class="profile-ring"></div>
+                <div class="profile-img">DV</div>
+            </div>
+            
+            <div class="typing-container">
+                <span class="typing-text" id="typing"></span>
+                <span class="cursor"></span>
+            </div>
+
             <h1>Danilo Vera</h1>
-            <p class="title">Senior DevOps Engineer</p>
-            <p class="location">Montevideo, Uruguay 🇺🇾</p>
+            <p class="subtitle">Senior DevOps Engineer</p>
+            <p class="location">📍 Montevideo, Uruguay 🇺🇾</p>
+
             <div class="social-links">
-                <a href="https://github.com/danilovera36" target="_blank">GitHub</a>
-                <a href="https://linkedin.com/in/danilo-vera-devops" target="_blank">LinkedIn</a>
-                <a href="mailto:daniloverauy@gmail.com">Email</a>
+                <a href="https://github.com/danilovera36" target="_blank">📦 GitHub</a>
+                <a href="https://linkedin.com/in/danilo-vera-devops" target="_blank">💼 LinkedIn</a>
+                <a href="mailto:daniloverauy@gmail.com">📧 Email</a>
             </div>
         </div>
     </header>
 
     <main class="container">
+        <!-- Stats -->
         <section>
+            <div class="section-header">
+                <span class="section-icon">📊</span>
+                <h2 class="section-title">Metrics</h2>
+                <div class="section-line"></div>
+            </div>
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-number">11+</div>
-                    <div class="stat-label">Proyectos</div>
+                    <div class="stat-label">Open Source Projects</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">560+</div>
-                    <div class="stat-label">Tests</div>
+                    <div class="stat-label">Automated Tests</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">100%</div>
-                    <div class="stat-label">CI/CD</div>
+                    <div class="stat-label">CI/CD Coverage</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">3</div>
-                    <div class="stat-label">Certificaciones</div>
+                    <div class="stat-label">Cloud Certifications</div>
                 </div>
             </div>
         </section>
 
+        <!-- About -->
         <section>
-            <h2 class="section-title">Sobre Mí</h2>
-            <div class="skill-card">
-                <p style="color: var(--text-muted); line-height: 1.8;">
-                    DevOps Engineer apasionado por la automatización, infraestructura como código y sistemas resilientes. 
-                    Especializado en Kubernetes, AWS, Terraform y CI/CD. Construyo herramientas que simplifican el trabajo 
-                    operativo y mejoran la eficiencia de los equipos de desarrollo. CKA, AWS Solutions Architect Associate y Terraform Associate certified.
+            <div class="section-header">
+                <span class="section-icon">👨‍💻</span>
+                <h2 class="section-title">About Me</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-card">
+                <p>
+                    Senior DevOps Engineer con pasión por la <span class="highlight">automatización</span>, 
+                    <span class="highlight">infraestructura como código</span> y sistemas resilientes.
+                    <br><br>
+                    Especializado en <span class="highlight">Kubernetes</span>, <span class="highlight">AWS</span>, 
+                    <span class="highlight">Terraform</span> y <span class="highlight">CI/CD pipelines</span>.
+                    Construyo herramientas que simplifican el trabajo operativo y mejoran la eficiencia de los equipos de desarrollo.
+                    <br><br>
+                    Certificaciones: <span class="highlight">CKA</span>, <span class="highlight">AWS Solutions Architect</span> y 
+                    <span class="highlight">Terraform Associate</span>.
                 </p>
+                <div class="console-output">
+                    <div class="console-line">
+                        <span class="console-prompt">$</span>
+                        <span class="console-success">whoami</span>
+                    </div>
+                    <div class="console-line">
+                        <span>danilo.vera - Senior DevOps Engineer</span>
+                    </div>
+                    <div class="console-line">
+                        <span class="console-prompt">$</span>
+                        <span class="console-info">cat skills.txt | grep -i "expert"</span>
+                    </div>
+                    <div class="console-line">
+                        <span>k8s, aws, terraform, docker, prometheus, grafana</span>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <!-- Certifications -->
         <section>
-            <h2 class="section-title">Certificaciones</h2>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-                <div class="cert-badge">🏆 AWS Solutions Architect Associate SAA-C03</div>
-                <div class="cert-badge">📜 Certified Kubernetes Administrator (CKA)</div>
-                <div class="cert-badge">🔧 HashiCorp Terraform Associate</div>
+            <div class="section-header">
+                <span class="section-icon">🏆</span>
+                <h2 class="section-title">Certifications</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="certs-container">
+                <div class="cert-badge">
+                    <span class="cert-icon">🎓</span>
+                    <div class="cert-info">
+                        <h4>AWS Solutions Architect</h4>
+                        <span>Associate SAA-C03</span>
+                    </div>
+                </div>
+                <div class="cert-badge">
+                    <span class="cert-icon">☸️</span>
+                    <div class="cert-info">
+                        <h4>Kubernetes Admin</h4>
+                        <span>Certified (CKA)</span>
+                    </div>
+                </div>
+                <div class="cert-badge">
+                    <span class="cert-icon">🔧</span>
+                    <div class="cert-info">
+                        <h4>Terraform Associate</h4>
+                        <span>HashiCorp Certified</span>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <!-- Skills -->
         <section>
-            <h2 class="section-title">Skills</h2>
+            <div class="section-header">
+                <span class="section-icon">🛠️</span>
+                <h2 class="section-title">Tech Stack</h2>
+                <div class="section-line"></div>
+            </div>
             <div class="skills-grid">
                 <div class="skill-card">
                     <h3>☁️ Cloud & IaC</h3>
@@ -419,14 +851,55 @@
             </div>
         </section>
 
+        <!-- Tools -->
         <section>
-            <h2 class="section-title">Proyectos Destacados</h2>
+            <div class="section-header">
+                <span class="section-icon">⚙️</span>
+                <h2 class="section-title">Daily Tools</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="tools-container">
+                <div class="tool-item">
+                    <span class="tool-icon">🐧</span>
+                    <span class="tool-name">Linux</span>
+                </div>
+                <div class="tool-item">
+                    <span class="tool-icon">⌨️</span>
+                    <span class="tool-name">Vim</span>
+                </div>
+                <div class="tool-item">
+                    <span class="tool-icon">🐙</span>
+                    <span class="tool-name">Git</span>
+                </div>
+                <div class="tool-item">
+                    <span class="tool-icon">📦</span>
+                    <span class="tool-name">Docker</span>
+                </div>
+                <div class="tool-item">
+                    <span class="tool-icon">☸️</span>
+                    <span class="tool-name">kubectl</span>
+                </div>
+                <div class="tool-item">
+                    <span class="tool-icon">🌊</span>
+                    <span class="tool-name">Helm</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section>
+            <div class="section-header">
+                <span class="section-icon">🚀</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="section-line"></div>
+            </div>
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-header">
                         <span class="project-name">ecspresso</span>
+                        <a href="https://github.com/danilovera36/ecspresso" class="project-link" target="_blank">🔗</a>
                     </div>
-                    <p class="project-desc">Gestión centralizada de variables de entorno y secrets AWS SSM para despliegues ECS con API FastAPI y CLI interactiva.</p>
+                    <p class="project-desc">Gestión centralizada de variables de entorno y secrets AWS SSM para despliegues ECS. API FastAPI + CLI interactiva con Rich.</p>
                     <div class="project-tech">
                         <span class="skill-tag">Python</span>
                         <span class="skill-tag">FastAPI</span>
@@ -437,8 +910,9 @@
                 <div class="project-card">
                     <div class="project-header">
                         <span class="project-name">redis-audit-panel</span>
+                        <a href="https://github.com/danilovera36/redis-audit-panel" class="project-link" target="_blank">🔗</a>
                     </div>
-                    <p class="project-desc">Panel web para gestionar y auditar entornos Redis con soporte multi-ambiente, RBAC, Google SSO y métricas en tiempo real.</p>
+                    <p class="project-desc">Panel web para gestionar y auditar entornos Redis. Multi-ambiente, RBAC, Google SSO, métricas en tiempo real.</p>
                     <div class="project-tech">
                         <span class="skill-tag">Django</span>
                         <span class="skill-tag">React</span>
@@ -449,6 +923,7 @@
                 <div class="project-card">
                     <div class="project-header">
                         <span class="project-name">deployment-monitor</span>
+                        <a href="https://github.com/danilovera36/deployment-monitor" class="project-link" target="_blank">🔗</a>
                     </div>
                     <p class="project-desc">Monitoreo de deployments en tiempo real con rollback automático y notificaciones Slack.</p>
                     <div class="project-tech">
@@ -460,6 +935,7 @@
                 <div class="project-card">
                     <div class="project-header">
                         <span class="project-name">env-vault</span>
+                        <a href="https://github.com/danilovera36/env-vault" class="project-link" target="_blank">🔗</a>
                     </div>
                     <p class="project-desc">CLI para encriptar archivos .env con AES-256 y soporte para AWS KMS.</p>
                     <div class="project-tech">
@@ -471,17 +947,19 @@
                 <div class="project-card">
                     <div class="project-header">
                         <span class="project-name">k8s-resource-exporter</span>
+                        <a href="https://github.com/danilovera36/k8s-resource-exporter" class="project-link" target="_blank">🔗</a>
                     </div>
                     <p class="project-desc">Exporta recursos de Kubernetes a YAML, JSON o HTML con reportes visuales.</p>
                     <div class="project-tech">
                         <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Kubernetes API</span>
+                        <span class="skill-tag">K8s API</span>
                         <span class="skill-tag">Jinja2</span>
                     </div>
                 </div>
                 <div class="project-card">
                     <div class="project-header">
                         <span class="project-name">secrets-scanner</span>
+                        <a href="https://github.com/danilovera36/secrets-scanner" class="project-link" target="_blank">🔗</a>
                     </div>
                     <p class="project-desc">Detector de secrets y API keys expuestas en repositorios Git.</p>
                     <div class="project-tech">
@@ -493,19 +971,26 @@
             </div>
         </section>
 
+        <!-- Contact -->
         <section>
-            <h2 class="section-title">Contacto</h2>
             <div class="contact-card">
-                <h3>¿Interested en trabajar juntos?</h3>
-                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
-                    Siempre abierto a nuevas oportunidades y proyectos interesantes.
-                </p>
+                <h3>Let's Work Together</h3>
+                <p>Siempre abierto a nuevas oportunidades y proyectos interesantes.</p>
                 <div class="contact-links">
-                    <a href="https://github.com/danilovera36" class="contact-link" target="_blank">GitHub Profile</a>
-                    <a href="https://linkedin.com/in/danilo-vera-devops" class="contact-link" target="_blank">LinkedIn</a>
-                    <a href="mailto:daniloverauy@gmail.com" class="contact-link">Email Me</a>
+                    <a href="https://github.com/danilovera36" class="contact-link" target="_blank">
+                        <span class="contact-link-icon">📦</span>
+                        GitHub
+                    </a>
+                    <a href="https://linkedin.com/in/danilo-vera-devops" class="contact-link" target="_blank">
+                        <span class="contact-link-icon">💼</span>
+                        LinkedIn
+                    </a>
+                    <a href="mailto:daniloverauy@gmail.com" class="contact-link">
+                        <span class="contact-link-icon">📧</span>
+                        Email
+                    </a>
                 </div>
-                <p style="color: var(--text-muted); margin-top: 1rem; font-size: 0.9rem;">
+                <p style="margin-top: 2rem; color: var(--text-muted);">
                     📱 +598 98 381 639
                 </p>
             </div>
@@ -514,8 +999,47 @@
 
     <footer>
         <div class="container">
-            <p>Built with ❤️ | © 2026 Danilo Vera | DevOps Engineer</p>
+            <p>Built with ❤️ by <a href="https://github.com/danilovera36">danilovera36</a> | © 2026</p>
         </div>
     </footer>
+
+    <script>
+        const texts = [
+            "Building resilient infrastructure...",
+            "Automating everything...",
+            "kubectl apply -f awesome.yaml",
+            "terraform init && terraform apply",
+            "git push && sleep 2 && success"
+        ];
+        
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById('typing');
+        
+        function type() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            if (!isDeleting && charIndex === currentText.length) {
+                setTimeout(() => { isDeleting = true; }, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+            }
+            
+            const speed = isDeleting ? 50 : 100;
+            setTimeout(type, speed);
+        }
+        
+        type();
+    </script>
 </body>
 </html>
